@@ -35,14 +35,17 @@ export default {
         days: []
         };
   },
+  props: {
+    value: [Date, String, Number],
+  },
   mounted() {
-    this.init();
+    this.init(this.value);
   },
   methods: {
-    init(data) {
+    init(value) {
       let day;
-      if (data) {
-        day = new Date(data);
+      if (value) {
+        day = new Date(value);
       } else {
         let now = new Date();
         day = new Date(this.formDate(now.getFullYear(), now.getMonth() + 1, 1));
