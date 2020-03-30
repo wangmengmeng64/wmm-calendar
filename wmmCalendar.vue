@@ -17,7 +17,7 @@
         <!-- 日期 -->
         <ul class="days">
             <li v-for='(day,index) in days' :key="index">
-                <span>{{day.day.getDate()}}</span>
+                <span @click="getDate(day.day)">{{day.day.getDate()}}</span>
             </li>
         </ul>
     </div>
@@ -69,8 +69,11 @@ export default {
         this.days.push({
           day: day
         });
-      }
-     
+      }   
+    },
+    getDate(date){
+      this.dateItem = new Date(+new Date(date) + 8 * 3600 * 1000).toISOString().slice(0, 10)
+      this.$emit("click", this.dateItem);
     },
     preMonth(){
         this.currentMonth --
@@ -151,8 +154,8 @@ ul {
   padding-top: 8px;
   cursor: pointer;
 }
-.days li .other {
-  padding: 5px;
-  color: gainsboro;
+
+.days li span {
+  padding:0 10px;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <h3 style="text-align: center;">wmmCalendar 日历</h3>
-     <wmmCalendar v-model="value"></wmmCalendar>
+     <wmmCalendar v-model="value" @click="getDate"></wmmCalendar>
     <!-- <wmmInput v-model="value" :disabled="false" :step="2" @change="handleChange"></wmmInput> -->
   </div>
 </template>
@@ -24,6 +24,9 @@ export default {
     // handleChange(val) {
     //   console.log(val);
     // },
+    getDate(date){
+      console.log(date);
+    }
   }
 }
 </script>
