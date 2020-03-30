@@ -17,7 +17,7 @@ export default {
   data () {
     return {
       // value:0,
-      value:""
+      value:new Date()
     }
   },
   methods:{
